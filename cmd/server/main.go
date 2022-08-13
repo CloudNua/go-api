@@ -5,6 +5,7 @@ import (
 
 	"github.com/CloudNua/go-api/internal/comment"
 	"github.com/CloudNua/go-api/internal/db"
+	transportHttp "github.com/CloudNua/go-api/internal/transport/http"
 )
 
 func Run() error {
@@ -21,6 +22,11 @@ func Run() error {
 	}
 
 	cmtService := comment.NewService(db)
+
+	httpHandler := transportHttp.NewHandler(cmtService)
+	if err := httpHandler.Serve(); err != nil {
+		return err
+	}
 
 	return nil
 }
