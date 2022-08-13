@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/CloudNua/go-api/internal/comment"
 	"github.com/CloudNua/go-api/internal/db"
 )
 
@@ -18,6 +19,8 @@ func Run() error {
 		fmt.Println("failed to migrate database")
 		return err
 	}
+
+	cmtService := comment.NewService(db)
 
 	return nil
 }
