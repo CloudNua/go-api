@@ -1,7 +1,6 @@
 package main
 
 import (
-	"context"
 	"fmt"
 
 	"github.com/CloudNua/go-api/internal/db"
@@ -15,10 +14,11 @@ func Run() error {
 		fmt.Println("Failed to connect to db")
 		return err
 	}
-	if err := db.Ping(context.Background()); err != nil {
+	if err := db.MigrateDB(); err != nil {
+		fmt.Println("failed to migrate database")
 		return err
 	}
-	fmt.Println("Successfully connected to db")
+
 	return nil
 }
 
