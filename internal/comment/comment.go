@@ -12,7 +12,7 @@ var (
 )
 
 // Comment - a representation of the comment
-// structure for our service
+// structure for the service
 type Comment struct {
 	ID     string
 	Slug   string
@@ -21,7 +21,7 @@ type Comment struct {
 }
 
 // Store - this interface defines all of the methods
-// that our service needs in order to operate
+// that the service needs in order to operate
 type Store interface {
 	GetComment(context.Context, string) (Comment, error)
 	PostComment(context.Context, Comment) (Comment, error)
@@ -29,7 +29,7 @@ type Store interface {
 	UpdateComment(context.Context, string, Comment) (Comment, error)
 }
 
-// Service - is the struct on which all our
+// Service - is the struct on which all the
 // logic will be built on top of
 type Service struct {
 	Store Store

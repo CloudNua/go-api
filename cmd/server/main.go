@@ -8,12 +8,15 @@ import (
 	transportHttp "github.com/CloudNua/go-api/internal/transport/http"
 )
 
+// Run - is going to be responsible for
+// the instantiation and startup of the
+// go application
 func Run() error {
-	fmt.Println("Starting up....")
+	fmt.Println("starting up application")
 
 	db, err := db.NewDatabase()
 	if err != nil {
-		fmt.Println("Failed to connect to db")
+		fmt.Println("Failed to connect to the database")
 		return err
 	}
 	if err := db.MigrateDB(); err != nil {
@@ -34,6 +37,6 @@ func Run() error {
 func main() {
 	fmt.Println("Go REST API")
 	if err := Run(); err != nil {
-		fmt.Println()
+		fmt.Println(err)
 	}
 }
