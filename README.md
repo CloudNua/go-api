@@ -12,4 +12,4 @@ Go REST API Version 1
 
 ## Application Overview + Context Propagation
 
-[Production Ready REST API in Go](/docs/go-api-1.png)
+![Production Ready REST API in Go](/docs/go-api-1.png)
